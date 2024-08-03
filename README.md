@@ -1,6 +1,6 @@
 # vite-react-tailwindcss-website-poc
 
-This demo website provides a minimal setup to get React+Tailwindcss working in Vite with HMR and some ESLint rules.
+This responsive website provides a minimal setup to get React+Tailwindcss working in Vite with HMR and some ESLint rules.
 
 ## Project setup
 
