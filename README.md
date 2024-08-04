@@ -2,6 +2,8 @@
 
 This responsive website provides a minimal setup to get React+Tailwindcss working in Vite with HMR and some ESLint rules.
 
+> Yet [another version](https://github.com/bluepower/cra-react-tailwindcss-website-poc) is based on Webpack.
+
 ## Project setup
 
 ### How to setup your project
