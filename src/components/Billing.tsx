@@ -1,6 +1,6 @@
 import React from "react";
 import styles, { layout } from "../style";
-import { apple, bill, google } from "../assets";
+import { apple, bill, google } from "../assets/";
 
 const Billing: React.FC = () => (
   <section id="product" className={layout.sectionReverse}>

@@ -1,9 +1,30 @@
 import React from "react";
 import styles from "../style";
-import { logo } from "../assets";
-import { footerLinks, socialMedia } from "../constants";
+import { logo } from "../assets/";
 
-const Footer: React.FC = () => {
+type FooterType = {
+  data?: any;
+};
+
+type LinkItemType = {
+  name?: string;
+  link?: string;
+};
+
+type FooterlinkItemType = {
+  title?: string;
+  links?: LinkItemType[];
+};
+
+type SocialItemType = {
+  id?: string;
+  icon?: any;
+  link?: string;
+};
+
+const Footer: React.FC<FooterType> = ({ data }) => {
+  const { footerLinks = [], socialMedia = [] } = data;
+
   const linkItemCls = (footerlink: any, index: number) => {
     return `font-poppins font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer ${
       index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"
@@ -31,7 +52,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="flex-[1.5] w-full flex flex-row justify-between flex-wrap md:mt-0 mt-10">
-          {footerLinks.map((footerlink) => (
+          {footerLinks.map((footerlink: FooterlinkItemType) => (
             <div
               key={footerlink.title}
               className={`flex flex-col ss:my-0 my-4 min-w-[150px]`}
@@ -40,7 +61,7 @@ const Footer: React.FC = () => {
                 {footerlink.title}
               </h4>
               <ul className="list-none mt-4">
-                {footerlink.links.map((link, index) => (
+                {footerlink.links?.map((link: LinkItemType, index: number) => (
                   <li
                     key={link.name}
                     className={linkItemCls(footerlink, index)}
@@ -60,7 +81,7 @@ const Footer: React.FC = () => {
         </p>
 
         <div className="flex flex-row md:mt-0 mt-6">
-          {socialMedia.map((social, index) => (
+          {socialMedia.map((social: SocialItemType, index: number) => (
             <img
               key={social.id}
               src={social.icon}

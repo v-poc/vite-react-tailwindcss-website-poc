@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import styles, { layout } from "../style";
-import { card } from "../assets";
+import { card } from "../assets/";
 
 const CardDeal: React.FC = () => (
   <section className={layout.section}>

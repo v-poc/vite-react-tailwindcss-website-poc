@@ -1,24 +1,36 @@
 import React from "react";
 import styles from "../style";
-import { clients } from "../constants";
 
-const Clients: React.FC = () => (
-  <section className={`${styles.flexCenter} my-4`}>
-    <div className={`${styles.flexCenter} flex-wrap w-full`}>
-      {clients.map((client) => (
-        <div
-          key={client.id}
-          className={`flex-1 ${styles.flexCenter} sm:min-w-[192px] min-w-[120px] m-5`}
-        >
-          <img
-            src={client.logo}
-            alt="client_logo"
-            className="sm:w-[192px] w-[100px] object-contain"
-          />
-        </div>
-      ))}
-    </div>
-  </section>
-);
+type ClientsType = {
+  data?: any;
+};
+
+type ClientItemType = {
+  id?: string;
+  logo?: any;
+};
+
+const Clients: React.FC<ClientsType> = ({ data }) => {
+  const { clients = [] } = data;
+
+  return (
+    <section className={`${styles.flexCenter} my-4`}>
+      <div className={`${styles.flexCenter} flex-wrap w-full`}>
+        {clients.map((client: ClientItemType) => (
+          <div
+            key={client.id}
+            className={`flex-1 ${styles.flexCenter} sm:min-w-[192px] min-w-[120px] m-5`}
+          >
+            <img
+              src={client.logo}
+              alt="client_logo"
+              className="sm:w-[192px] w-[100px] object-contain"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Clients;

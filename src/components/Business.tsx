@@ -1,13 +1,24 @@
 import React from "react";
 import Button from "./Button";
 import styles, { layout } from "../style";
-import { features } from "../constants";
+
+type BusinessType = {
+  data?: any;
+};
+
+type FeatureItemType = {
+  id?: string;
+  icon?: any;
+  title?: string;
+  content?: string;
+};
 
 type FeatureCardType = {
-  icon?: string;
+  icon?: any;
   title?: string;
   content?: string;
   index?: number;
+  data?: any;
 };
 
 const FeatureCard: React.FC<FeatureCardType> = ({
@@ -15,10 +26,14 @@ const FeatureCard: React.FC<FeatureCardType> = ({
   title,
   content,
   index,
+  data,
 }) => {
+  const { features = [] } = data;
+
   const wrapperCls = `flex flex-row p-6 rounded-[20px] ${
     index !== features.length - 1 ? "mb-6" : "mb-0"
   } feature-card`;
+
   return (
     <div className={wrapperCls}>
       <div
@@ -38,28 +53,37 @@ const FeatureCard: React.FC<FeatureCardType> = ({
   );
 };
 
-const Business: React.FC = () => (
-  <section id="features" className={layout.section}>
-    <div className={layout.sectionInfo}>
-      <h2 className={styles.heading2}>
-        You do the business, <br className="sm:block hidden" /> we’ll handle the
-        money.
-      </h2>
-      <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        With the right credit card, you can improve your financial life by
-        building credit, earning rewards and saving money. But with hundreds of
-        credit cards on the market.
-      </p>
+const Business: React.FC<BusinessType> = ({ data }) => {
+  const { features = [] } = data;
 
-      <Button styles="mt-10" />
-    </div>
+  return (
+    <section id="features" className={layout.section}>
+      <div className={layout.sectionInfo}>
+        <h2 className={styles.heading2}>
+          You do the business, <br className="sm:block hidden" /> we’ll handle
+          the money.
+        </h2>
+        <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+          With the right credit card, you can improve your financial life by
+          building credit, earning rewards and saving money. But with hundreds
+          of credit cards on the market.
+        </p>
 
-    <div className={`${layout.sectionImg} flex-col`}>
-      {features.map((feature, index) => (
-        <FeatureCard key={feature.id} {...feature} index={index} />
-      ))}
-    </div>
-  </section>
-);
+        <Button styles="mt-10" />
+      </div>
+
+      <div className={`${layout.sectionImg} flex-col`}>
+        {features.map((feature: FeatureItemType, index: number) => (
+          <FeatureCard
+            key={feature.id}
+            {...feature}
+            index={index}
+            data={data}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Business;
