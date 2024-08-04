@@ -3,22 +3,26 @@ import Button from "./Button";
 import styles, { layout } from "../style";
 
 type BusinessType = {
-  data?: any;
+  data: {
+    features?: FeatureItemType[];
+  };
 };
 
 type FeatureItemType = {
   id?: string;
-  icon?: any;
+  icon?: string;
   title?: string;
   content?: string;
 };
 
 type FeatureCardType = {
-  icon?: any;
+  icon?: string;
   title?: string;
   content?: string;
   index?: number;
-  data?: any;
+  data: {
+    features?: FeatureItemType[];
+  };
 };
 
 const FeatureCard: React.FC<FeatureCardType> = ({

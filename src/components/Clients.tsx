@@ -2,12 +2,14 @@ import React from "react";
 import styles from "../style";
 
 type ClientsType = {
-  data?: any;
+  data: {
+    clients?: ClientItemType[];
+  };
 };
 
 type ClientItemType = {
   id?: string;
-  logo?: any;
+  logo?: string;
 };
 
 const Clients: React.FC<ClientsType> = ({ data }) => {

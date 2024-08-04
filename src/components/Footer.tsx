@@ -3,7 +3,10 @@ import styles from "../style";
 import { logo } from "../assets/";
 
 type FooterType = {
-  data?: any;
+  data: {
+    footerLinks?: FooterlinkItemType[];
+    socialMedia?: SocialItemType[];
+  };
 };
 
 type LinkItemType = {
@@ -13,19 +16,19 @@ type LinkItemType = {
 
 type FooterlinkItemType = {
   title?: string;
-  links?: LinkItemType[];
+  links: LinkItemType[];
 };
 
 type SocialItemType = {
   id?: string;
-  icon?: any;
+  icon?: string;
   link?: string;
 };
 
 const Footer: React.FC<FooterType> = ({ data }) => {
   const { footerLinks = [], socialMedia = [] } = data;
 
-  const linkItemCls = (footerlink: any, index: number) => {
+  const linkItemCls = (footerlink: FooterlinkItemType, index: number) => {
     return `font-poppins font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer ${
       index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"
     }`;

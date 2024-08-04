@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { close, logo, menu } from "../assets/";
 
 type NavbarType = {
-  data?: any;
+  data: {
+    navLinks?: NavItemType[];
+  };
 };
 
 type NavItemType = {
@@ -15,7 +17,7 @@ const Navbar: React.FC<NavbarType> = ({ data }) => {
   const [toggle, setToggle] = useState(false);
   const { navLinks = [] } = data;
 
-  const navItemCls = (nav: any, index: number) => {
+  const navItemCls = (nav: NavItemType, index: number) => {
     return `font-poppins font-normal cursor-pointer text-[16px] ${
       active === nav.title ? "text-white" : "text-dimWhite"
     } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`;

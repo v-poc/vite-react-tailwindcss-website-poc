@@ -2,7 +2,9 @@ import React from "react";
 import styles from "../style";
 
 type StatsType = {
-  data?: any;
+  data: {
+    stats?: StatItemType[];
+  };
 };
 
 type StatItemType = {

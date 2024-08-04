@@ -3,7 +3,9 @@ import FeedbackCard from "./FeedbackCard";
 import styles from "../style";
 
 type TestimonialsType = {
-  data?: any;
+  data: {
+    feedback?: CardItemType[];
+  };
 };
 
 type CardItemType = {
@@ -11,7 +13,7 @@ type CardItemType = {
   content?: string;
   name?: string;
   title?: string;
-  img?: any;
+  img?: string;
 };
 
 const Testimonials: React.FC<TestimonialsType> = ({ data }) => {
