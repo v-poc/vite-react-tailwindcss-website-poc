@@ -1,6 +1,6 @@
 # vite-react-tailwindcss-website-poc
 
-This responsive website provides a minimal setup to get React+Tailwindcss working in Vite with HMR and some ESLint rules.
+This [responsive website](https://nikoni.top/vite-website-poc/) provides a minimal setup to get React+Tailwindcss working in Vite with HMR and some ESLint rules.
 
 > Yet [another version](https://github.com/bluepower/cra-react-tailwindcss-website-poc) is based on Webpack.
 
